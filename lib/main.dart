@@ -14,6 +14,7 @@ void main() {
         return GetMaterialApp(
           debugShowCheckedModeBanner: false,
           title: "Nirvāda",
+          theme: ThemeData(fontFamily: "Poppins"),
           initialRoute: AppPages.INITIAL,
           getPages: AppPages.routes,
         );

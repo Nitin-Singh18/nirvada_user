@@ -24,15 +24,14 @@ class XText extends StatelessWidget {
   final Color color;
   final bool isLight;
 
-  const XText(
-      {super.key,
-      this.text = "text",
-      this.size = 12,
-      this.fontWeight = FontWeight.w500,
-      this.isLight = false,
-      this.color = const Color(0xff1b1b1b),
-      
-      });
+  const XText({
+    super.key,
+    this.text = "text",
+    this.size = 12,
+    this.fontWeight = FontWeight.w500,
+    this.isLight = false,
+    this.color = const Color(0xff1b1b1b),
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +40,7 @@ class XText extends StatelessWidget {
       text,
       style: TextStyle(
         fontSize: size,
-        fontFamily: "Poppins",
+        // fontFamily: "Poppins",
         fontWeight: fontWeight,
         color: isLight ? lightColor : color,
       ),
