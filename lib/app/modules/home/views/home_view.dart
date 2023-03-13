@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:nirvada_user/app/Const/Widgets/xText.dart';
 
 import '../controllers/home_controller.dart';
 
@@ -14,11 +15,14 @@ class HomeView extends GetView<HomeController> {
         centerTitle: true,
       ),
       body: const Center(
-        child: Text(
-          'HomeView is working',
-          style: TextStyle(fontSize: 20),
-        ),
+        child: XText(
+          text: "Strinh texxt",
+          size: 34,
+          color: Colors.red,
+        )
       ),
     );
   }
 }
+
+//12, 14, 16, 18, 20, 24
