@@ -56,7 +56,7 @@ class LoginScreenView extends GetView<LoginScreenController> {
               ),
             ),
             XText(
-              text: "Be a responsible citizen", fontFamily: 'Poppins',
+              text: "Be a responsible citizen",
             ),
             SizedBox(
               height: 60.h,
@@ -64,11 +64,11 @@ class LoginScreenView extends GetView<LoginScreenController> {
             XText(
               text: "LOGIN",
               size: 24,
-              fontWeight: FontWeight.w600, fontFamily: 'Poppins',
+              fontWeight: FontWeight.w600,
             ),
             XText(
               text: "Enter lgoin credentials",
-              isLight: true, fontFamily: 'Poppins',
+              isLight: true,
             ),
             SizedBox(
               height: 40.h,
@@ -94,7 +94,7 @@ class LoginScreenView extends GetView<LoginScreenController> {
               child: XText(
                 text: "LOGIN",
                 color: Colors.white,
-                size: 18.sp, fontFamily: 'Poppins',
+                size: 18.sp,
               ),
               decoration: BoxDecoration(
                   color: Color(0xff06038D),
@@ -108,9 +108,11 @@ class LoginScreenView extends GetView<LoginScreenController> {
               children: const [
                 XText(
                   text: "Need help?",
-                  color: Color(0xff06038D), fontFamily: 'Poppins',
+                  color: Color(0xff06038D),
                 ),
-                XText(text: 'Contact us at 18x.', fontFamily: 'Poppins',)
+                XText(
+                  text: 'Contact us at 18x.',
+                )
               ],
             )
           ]),

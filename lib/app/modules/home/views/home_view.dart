@@ -22,16 +22,14 @@ class HomeView extends GetView<HomeController> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: const [
-                   XText(
+                  XText(
                     text: "Time left : ",
-                    fontFamily: "Poppins",
                     size: 14,
                     color: Colors.black87,
                     fontWeight: FontWeight.w600,
                   ),
                   XText(
                     text: "2:24:23",
-                    fontFamily: "Poppins",
                     size: 14,
                     color: Colors.black54,
                     fontWeight: FontWeight.w600,
@@ -46,7 +44,6 @@ class HomeView extends GetView<HomeController> {
               alignment: Alignment.centerLeft,
               child: const XText(
                 text: "  Select your candidate -",
-                fontFamily: "Poppins",
                 size: 18,
                 color: Colors.black87,
                 fontWeight: FontWeight.w600,
@@ -79,10 +76,8 @@ class HomeView extends GetView<HomeController> {
                         color: Colors.black87,
                         fontWeight: FontWeight.bold,
                         text: "Narendra D.Modi",
-                        fontFamily: "Poppins",
                       ),
                       subtitle: const XText(
-                        fontFamily: "Poppins",
                         size: 14,
                         text: "Bhartiya Janta Party (BJP)",
                         color: Colors.black54,

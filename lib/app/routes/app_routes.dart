@@ -9,6 +9,7 @@ abstract class Routes {
   static const LOGIN_SCREEN = _Paths.LOGIN_SCREEN;
   static const STATUS_SCREEN = _Paths.STATUS_SCREEN;
   static const VOTE_SCREEN = _Paths.VOTE_SCREEN;
+  static const QR_SCREEN = _Paths.QR_SCREEN;
 }
 
 abstract class _Paths {
@@ -19,4 +20,5 @@ abstract class _Paths {
   static const LOGIN_SCREEN = '/login-screen';
   static const STATUS_SCREEN = '/status-screen';
   static const VOTE_SCREEN = '/vote-screen';
+  static const QR_SCREEN = '/qr-screen';
 }

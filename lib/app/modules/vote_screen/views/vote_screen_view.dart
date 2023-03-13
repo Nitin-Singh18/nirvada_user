@@ -25,14 +25,12 @@ class VoteScreenView extends GetView<VoteScreenController> {
                 children: const [
                   XText(
                     text: "Time left : ",
-                    fontFamily: "Poppins",
                     size: 14,
                     color: Colors.black87,
                     fontWeight: FontWeight.w600,
                   ),
                   XText(
                     text: "2:24:23",
-                    fontFamily: "Poppins",
                     size: 14,
                     color: Colors.black54,
                     fontWeight: FontWeight.w600,
@@ -47,7 +45,6 @@ class VoteScreenView extends GetView<VoteScreenController> {
               alignment: Alignment.centerLeft,
               child: const XText(
                 text: "  Vote Here-",
-                fontFamily: "Poppins",
                 size: 18,
                 color: Colors.black87,
                 fontWeight: FontWeight.w600,
@@ -80,14 +77,12 @@ class VoteScreenView extends GetView<VoteScreenController> {
                 color: Colors.black87,
                 fontWeight: FontWeight.bold,
                 text: "    Narendra D.Modi",
-                fontFamily: "Poppins",
               ),
               XText(
                 size: 18,
                 color: Colors.black54,
                 fontWeight: FontWeight.w600,
                 text: "    From Varanasi",
-                fontFamily: "Poppins",
               ),
               Row(
                 children: [
@@ -100,10 +95,12 @@ class VoteScreenView extends GetView<VoteScreenController> {
                       color: Colors.black,
                       fontWeight: FontWeight.w600,
                       text: "Bhartiya Janta Party (BJP)",
-                      fontFamily: "Poppins",
                     ),
                   ),
-                  Icon(Icons.arrow_forward,color: Colors.black,),
+                  Icon(
+                    Icons.arrow_forward,
+                    color: Colors.black,
+                  ),
                   Container(
                     margin: EdgeInsets.only(top: 5.h, left: 30.h),
                     height: 70.h,
@@ -133,7 +130,6 @@ class VoteScreenView extends GetView<VoteScreenController> {
                 color: Colors.black54,
                 fontWeight: FontWeight.w600,
                 text: "Instruction -",
-                fontFamily: "Poppins",
               ),
               SizedBox(
                 height: 5.h,
@@ -146,7 +142,6 @@ class VoteScreenView extends GetView<VoteScreenController> {
                   fontWeight: FontWeight.w600,
                   text:
                       "Click on the vote (green) to cast your vote or click on go back (blue) to select another candidate.",
-                  fontFamily: "Poppins",
                 ),
               ),
             ],
