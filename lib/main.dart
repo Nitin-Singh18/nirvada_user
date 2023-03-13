@@ -13,7 +13,7 @@ void main() {
       builder: (context, child) {
         return GetMaterialApp(
           debugShowCheckedModeBanner: false,
-          title: "Application",
+          title: "Nirvāda",
           initialRoute: AppPages.INITIAL,
           getPages: AppPages.routes,
         );
