@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 // Widget XText(
 //   String text,
 //   double size, weight,
@@ -30,7 +30,7 @@ class XText extends StatelessWidget {
       this.size = 12,
       this.fontWeight = FontWeight.w500,
       this.isLight = false,
-      this.color = const Color(0xff1b1b1b),
+      this.color = const Color(0xff1b1b1b), required String fontFamily,
       
       });
 
@@ -40,7 +40,7 @@ class XText extends StatelessWidget {
     return Text(
       text,
       style: TextStyle(
-        fontSize: size,
+        fontSize: size.sp,
         fontFamily: "Poppins",
         fontWeight: fontWeight,
         color: isLight ? lightColor : color,
