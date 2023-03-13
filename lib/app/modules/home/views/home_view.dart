@@ -33,7 +33,7 @@ class HomeView extends GetView<HomeController> {
                     text: "2:24:23",
                     fontFamily: "Poppins",
                     size: 14,
-                    color: Colors.black87,
+                    color: Colors.black54,
                     fontWeight: FontWeight.w600,
                   ),
                 ],

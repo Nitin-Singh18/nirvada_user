@@ -18,7 +18,7 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.STATUS_SCREEN;
+  static const INITIAL = Routes.VOTE_SCREEN;
 
   static final routes = [
     GetPage(
