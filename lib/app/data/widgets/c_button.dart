@@ -21,6 +21,7 @@ class CButton extends StatelessWidget {
           text: title,
           color: Colors.white,
           size: 18.sp,
+          fontFamily: 'Poppins',
         ),
         decoration: BoxDecoration(
             color: Color(0xff06038D), borderRadius: BorderRadius.circular(6.r)),

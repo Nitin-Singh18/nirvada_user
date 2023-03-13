@@ -16,11 +16,13 @@ class DetailsWidget extends StatelessWidget {
         XText(
           text: title,
           size: 14.sp,
+          fontFamily: 'Poppins',
         ),
         XText(
           text: data,
           size: 14.sp,
           isLight: true,
+          fontFamily: 'Poppins',
         )
       ],
     );
