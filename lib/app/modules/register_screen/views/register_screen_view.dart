@@ -56,7 +56,7 @@ class RegisterScreenView extends GetView<RegisterScreenController> {
               ),
             ),
             XText(
-              text: "Be a responsible citizen",
+              text: "Be a responsible citizen", fontFamily: 'Poppins',
             ),
             SizedBox(
               height: 60.h,
@@ -64,11 +64,11 @@ class RegisterScreenView extends GetView<RegisterScreenController> {
             XText(
               text: "Register yourself",
               size: 24,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w600, fontFamily: 'Poppins',
             ),
             XText(
               text: "Enter your details to register in app",
-              isLight: true,
+              isLight: true, fontFamily: 'Poppins',
             ),
             SizedBox(
               height: 40.h,
@@ -94,7 +94,8 @@ class RegisterScreenView extends GetView<RegisterScreenController> {
               child: XText(
                 text: "REGISTER",
                 color: Colors.white,
-                size: 18.sp,
+                size: 18.sp, 
+                fontFamily: 'Poppins',
               ),
               decoration: BoxDecoration(
                   color: Color(0xff06038D),
@@ -108,9 +109,10 @@ class RegisterScreenView extends GetView<RegisterScreenController> {
               children: const [
                 XText(
                   text: "Need help?",
-                  color: Color(0xff06038D),
+                  color: Color(0xff06038D), 
+                  fontFamily: 'Poppins',
                 ),
-                XText(text: 'Contact us at 18x.')
+                XText(text: 'Contact us at 18x.', fontFamily: 'Poppins',)
               ],
             )
           ]),
