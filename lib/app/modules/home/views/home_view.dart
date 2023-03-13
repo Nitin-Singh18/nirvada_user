@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:nirvada_user/app/Const/Widgets/xText.dart';
+
 import '../controllers/home_controller.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -55,61 +56,12 @@ class HomeView extends GetView<HomeController> {
           ],
         ),
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Column(
-                children: [
-                  Material(
-                    elevation: 4.0,
-                    child: ListTile(
-                      onTap: () {},
-                      leading: Container(
-                        height: 80.h,
-                        width: 60.h,
-                        decoration: const BoxDecoration(
-                          image: DecorationImage(
-                              image: AssetImage('assets/images/image3.png')),
-                        ),
-                      ),
-                      title: const XText(
-                        size: 18,
-                        color: Colors.black87,
-                        fontWeight: FontWeight.bold,
-                        text: "Narendra D.Modi",
-                        fontFamily: "Poppins",
-                      ),
-                      subtitle: const XText(
-                        fontFamily: "Poppins",
-                        size: 14,
-                        text: "Bhartiya Janta Party(BJP)",
-                        color: Colors.black54,
-                        fontWeight: FontWeight.w500,
-                      ),
-                      trailing: Container(
-                        height: 80.h,
-                        width: 60.h,
-                        decoration: const BoxDecoration(
-                          image: DecorationImage(
-                              image: AssetImage('assets/images/image4.png')),
-                        ),
-                      ),
-                      tileColor: Colors.white,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(6),
-                        side: const BorderSide(
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
+      body: const Center(
+        child: XText(
+          text: "Strinh texxt",
+          size: 34,
+          color: Colors.red,
+        )
       ),
     );
   }
