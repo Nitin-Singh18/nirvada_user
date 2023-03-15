@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
-import 'package:nirvada_user/app/data/widgets/custom_textfield.dart';
-import 'package:nirvada_user/app/data/widgets/xText.dart';
 
-import '../controllers/register_screen_controller.dart';
+import '../../../data/widgets/custom_textfield.dart';
+import '../../../data/widgets/xText.dart';
+import '../controllers/login_screen_controller.dart';
 
-class RegisterScreenView extends GetView<RegisterScreenController> {
-  const RegisterScreenView({Key? key}) : super(key: key);
+class LoginScreenView extends GetView<LoginScreenController> {
+  const LoginScreenView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -62,28 +62,28 @@ class RegisterScreenView extends GetView<RegisterScreenController> {
               height: 60.h,
             ),
             XText(
-              text: "Register yourself",
+              text: "LOGIN",
               size: 24,
               fontWeight: FontWeight.w600,
             ),
             XText(
-              text: "Enter your details to register in app",
+              text: "Enter lgoin credentials",
               isLight: true,
             ),
             SizedBox(
               height: 40.h,
             ),
             CustomTextField(
-                title: "Voter ID",
-                hintText: "Enter your voter ID here",
-                controller: controller.voterId),
+                title: "Auth ID",
+                hintText: "Enter the auth ID from SMS",
+                controller: controller.authID),
             SizedBox(
               height: 26.h,
             ),
             CustomTextField(
-                title: "Phone Number",
-                hintText: "Enter your registered phone number",
-                controller: controller.phoneNumber),
+                title: "Password",
+                hintText: "Enter the password from SMS",
+                controller: controller.password),
             SizedBox(
               height: 32.h,
             ),
@@ -92,7 +92,7 @@ class RegisterScreenView extends GetView<RegisterScreenController> {
               width: 320.w,
               alignment: Alignment.center,
               child: XText(
-                text: "REGISTER",
+                text: "LOGIN",
                 color: Colors.white,
                 size: 18.sp,
               ),

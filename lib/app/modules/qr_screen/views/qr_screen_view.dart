@@ -2,13 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
-import 'package:nirvada_user/app/data/widgets/custom_textfield.dart';
-import 'package:nirvada_user/app/data/widgets/xText.dart';
+import 'package:nirvada_user/app/data/widgets/c_button.dart';
+import 'package:qr_flutter/qr_flutter.dart';
 
-import '../controllers/register_screen_controller.dart';
+import '../../../data/widgets/custom_textfield.dart';
+import '../../../data/widgets/xText.dart';
+import '../controllers/qr_screen_controller.dart';
 
-class RegisterScreenView extends GetView<RegisterScreenController> {
-  const RegisterScreenView({Key? key}) : super(key: key);
+class QrScreenView extends GetView<QrScreenController> {
+  const QrScreenView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -59,61 +61,73 @@ class RegisterScreenView extends GetView<RegisterScreenController> {
               text: "Be a responsible citizen",
             ),
             SizedBox(
-              height: 60.h,
-            ),
-            XText(
-              text: "Register yourself",
-              size: 24,
-              fontWeight: FontWeight.w600,
-            ),
-            XText(
-              text: "Enter your details to register in app",
-              isLight: true,
-            ),
-            SizedBox(
               height: 40.h,
             ),
-            CustomTextField(
-                title: "Voter ID",
-                hintText: "Enter your voter ID here",
-                controller: controller.voterId),
-            SizedBox(
-              height: 26.h,
-            ),
-            CustomTextField(
-                title: "Phone Number",
-                hintText: "Enter your registered phone number",
-                controller: controller.phoneNumber),
-            SizedBox(
-              height: 32.h,
-            ),
-            Container(
-              height: 50.h,
-              width: 320.w,
-              alignment: Alignment.center,
-              child: XText(
-                text: "REGISTER",
-                color: Colors.white,
-                size: 18.sp,
-              ),
-              decoration: BoxDecoration(
-                  color: Color(0xff06038D),
-                  borderRadius: BorderRadius.circular(6.r)),
+            XText(
+              text: "Scan this code at the center to cast your vote -",
+              size: 12.sp,
             ),
             SizedBox(
-              height: 40.h,
+              height: 16.h,
+            ),
+            QrImage(
+              data: "flutter.dev",
+              size: 290.sp,
+            ),
+            SizedBox(
+              height: 30.h,
             ),
             Row(
-              mainAxisSize: MainAxisSize.min,
-              children: const [
-                XText(
-                  text: "Need help?",
-                  color: Color(0xff06038D),
+              children: [
+                Expanded(
+                    child: Container(
+                  height: 1,
+                  color: Colors.black,
+                )),
+                SizedBox(
+                  width: 8.w,
                 ),
                 XText(
-                  text: 'Contact us at 18x.',
-                )
+                  text: "OR",
+                ),
+                SizedBox(
+                  width: 8.w,
+                ),
+                Expanded(
+                    child: Container(
+                  height: 1.h,
+                  color: Colors.black,
+                )),
               ],
+            ),
+            SizedBox(
+              height: 30.h,
+            ),
+            XText(
+              text: "Login with your credentials -",
+              size: 14.sp,
+            ),
+            SizedBox(
+              height: 20.h,
+            ),
+            Align(
+              alignment: Alignment.center,
+              child: InkWell(
+                onTap: () {},
+                child: Container(
+                  height: 50.h,
+                  width: 260.w,
+                  alignment: Alignment.center,
+                  child: XText(
+                    text: "LOGIN",
+                    color: Colors.white,
+                    size: 18.sp,
+                  ),
+                  decoration: BoxDecoration(
+                      color: Color(0xff06038D),
+                      borderRadius: BorderRadius.circular(6.r)),
+                ),
+              ),
             )
           ]),
         ),
