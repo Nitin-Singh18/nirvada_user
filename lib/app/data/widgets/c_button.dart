@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
-
 import 'xText.dart';
 
 class CButton extends StatelessWidget {
@@ -21,7 +19,6 @@ class CButton extends StatelessWidget {
           text: title,
           color: Colors.white,
           size: 18.sp,
-          fontFamily: 'Poppins',
         ),
         decoration: BoxDecoration(
             color: Color(0xff06038D), borderRadius: BorderRadius.circular(6.r)),

@@ -33,7 +33,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
             alignment: Alignment.centerLeft,
             child: XText(
               text: widget.title,
-              fontWeight: FontWeight.w600, fontFamily: 'Poppins',
+              fontWeight: FontWeight.w600,
             )),
         SizedBox(
           height: 4.h,

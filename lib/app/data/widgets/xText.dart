@@ -30,7 +30,7 @@ class XText extends StatelessWidget {
       this.size = 12,
       this.fontWeight = FontWeight.w500,
       this.isLight = false,
-      this.color = const Color(0xff1b1b1b), required String fontFamily,
+      this.color = const Color(0xff1b1b1b),
       
       });
 
