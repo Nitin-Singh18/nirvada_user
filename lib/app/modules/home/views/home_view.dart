@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:nirvada_user/app/modules/facial_recognition/facial_recognition.dart';
+import 'package:nirvada_user/app/routes/app_pages.dart';
 
 import '../controllers/home_controller.dart';
 
@@ -17,9 +17,7 @@ class HomeView extends GetView<HomeController> {
       body: Center(
         child: ElevatedButton(
           onPressed: () {
-            Get.to(
-              () => TwoBoxImagePicker(),
-            );
+            Get.toNamed(Routes.FACIAL_RECOGNITION_SCREEN);
           },
           child: Text("Press"),
         ),

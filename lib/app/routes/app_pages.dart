@@ -27,7 +27,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.FACIAL_RECOGNITION_SCREEN,
-      page: () => const FacialRecognitionScreenView(),
+      page: () => FacialRecognitionScreenView(),
       binding: FacialRecognitionScreenBinding(),
     ),
   ];
