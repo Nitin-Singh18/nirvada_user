@@ -26,3 +26,29 @@ class CButton extends StatelessWidget {
     );
   }
 }
+
+class LButton extends StatelessWidget {
+  final String title;
+  final Function onTap;
+  const LButton({super.key, required this.title, required this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: onTap(),
+      child: Container(
+        height: 70.h,
+        width: 320.w,
+        alignment: Alignment.center,
+        child: XText(
+          text: title,
+          color: Colors.white,
+          size: 20.sp,
+          fontWeight: FontWeight.bold,
+        ),
+        decoration: BoxDecoration(
+            color: Color(0xff046A38), borderRadius: BorderRadius.circular(6.r)),
+      ),
+    );
+  }
+}

@@ -1,11 +1,12 @@
 import 'package:get/get.dart';
-
 import '../modules/facial_recognition_screen/bindings/facial_recognition_screen_binding.dart';
 import '../modules/facial_recognition_screen/views/facial_recognition_screen_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/login_screen/bindings/login_screen_binding.dart';
 import '../modules/login_screen/views/login_screen_view.dart';
+import '../modules/qr_screen/bindings/qr_screen_binding.dart';
+import '../modules/qr_screen/views/qr_screen_view.dart';
 import '../modules/register_screen/bindings/register_screen_binding.dart';
 import '../modules/register_screen/views/register_screen_view.dart';
 import '../modules/status_screen/bindings/status_screen_binding.dart';
@@ -33,7 +34,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.FACIAL_RECOGNITION_SCREEN,
-      page: () => const FacialRecognitionScreenView(),
+      page: () => FacialRecognitionScreenView(),
       binding: FacialRecognitionScreenBinding(),
     ),
     GetPage(
@@ -50,6 +51,11 @@ class AppPages {
       name: _Paths.VOTE_SCREEN,
       page: () => const VoteScreenView(),
       binding: VoteScreenBinding(),
+    ),
+    GetPage(
+      name: _Paths.QR_SCREEN,
+      page: () => const QrScreenView(),
+      binding: QrScreenBinding(),
     ),
   ];
 }
