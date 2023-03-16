@@ -1,5 +1,4 @@
 import 'package:get/get.dart';
-
 import '../modules/facial_recognition_screen/bindings/facial_recognition_screen_binding.dart';
 import '../modules/facial_recognition_screen/views/facial_recognition_screen_view.dart';
 import '../modules/home/bindings/home_binding.dart';

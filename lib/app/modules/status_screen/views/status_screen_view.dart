@@ -51,9 +51,9 @@ class StatusScreenView extends GetView<StatusScreenController> {
             Row(
               children: [
                 XText(
-                  text: "Details",
-                  size: 14.sp,
-                  fontWeight: FontWeight.w600,
+                    text: "Details",
+                    size: 14.sp,
+                    fontWeight: FontWeight.w600,
                 ),
                 SizedBox(
                   width: 10.w,
