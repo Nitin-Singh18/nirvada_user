@@ -53,18 +53,23 @@ class LoginScreenView extends GetView<LoginScreenController> {
           SizedBox(
             height: 32.h,
           ),
-          Container(
-            height: 50.h,
-            width: 320.w,
-            alignment: Alignment.center,
-            child: XText(
-              text: "LOGIN",
-              color: Colors.white,
-              size: 18.sp,
+          InkWell(
+            onTap: (){
+              controller.onlogin();
+            },
+            child: Container(
+              height: 50.h,
+              width: 320.w,
+              alignment: Alignment.center,
+              child: XText(
+                text: "LOGIN",
+                color: Colors.white,
+                size: 18.sp,
+              ),
+              decoration: BoxDecoration(
+                  color: Color(0xff06038D),
+                  borderRadius: BorderRadius.circular(6.r)),
             ),
-            decoration: BoxDecoration(
-                color: Color(0xff06038D),
-                borderRadius: BorderRadius.circular(6.r)),
           ),
           SizedBox(
             height: 40.h,
