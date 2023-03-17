@@ -5,16 +5,16 @@ import 'package:nirvada_user/app/data/widgets/appNameText.dart';
 import 'package:nirvada_user/app/data/widgets/c_button.dart';
 import 'package:nirvada_user/app/data/widgets/custom_textfield.dart';
 import 'package:nirvada_user/app/data/widgets/xText.dart';
-import 'package:nirvada_user/app/routes/app_pages.dart';
 import '../controllers/register_screen_controller.dart';
 
 class RegisterScreenView extends GetView<RegisterScreenController> {
   const RegisterScreenView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: SingleChildScrollView(
+    return SafeArea(child: Scaffold(
+        body: GetBuilder<RegisterScreenController>(builder: (controller) {
+      if (controller.isLoading) {
+        return SingleChildScrollView(
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 20.0.w),
             child: Column(
@@ -78,8 +78,12 @@ class RegisterScreenView extends GetView<RegisterScreenController> {
                   )
                 ]),
           ),
-        ),
-      ),
-    );
+        );
+      } else {
+        return Center(
+          child: CircularProgressIndicator(),
+        );
+      }
+    })));
   }
 }

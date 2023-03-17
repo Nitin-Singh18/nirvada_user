@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:nirvada_user/app/data/widgets/c_button.dart';
+import 'package:nirvada_user/app/routes/app_pages.dart';
 
 import '../../../data/widgets/custom_textfield.dart';
 import '../../../data/widgets/xText.dart';
@@ -69,7 +70,7 @@ class QrScreenView extends GetView<QrScreenController> {
             SizedBox(
               height: 16.h,
             ),
-            QRCodeGenerator("flutter",290.sp),
+            QRCodeGenerator("flutter", 290.sp),
             SizedBox(
               height: 30.h,
             ),
@@ -109,7 +110,9 @@ class QrScreenView extends GetView<QrScreenController> {
             Align(
               alignment: Alignment.center,
               child: InkWell(
-                onTap: () {},
+                onTap: () {
+                  Get.toNamed(Routes.LOGIN_SCREEN);
+                },
                 child: Container(
                   height: 50.h,
                   width: 260.w,

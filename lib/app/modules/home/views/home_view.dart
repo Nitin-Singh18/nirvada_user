@@ -62,15 +62,18 @@ class HomeView extends GetView<HomeController> {
         padding: const EdgeInsets.all(8.0),
         child: GetBuilder<HomeController>(
           builder: (controller) {
-            return ListView.builder(
-              itemCount: controller.candidateData.length,
-              itemBuilder: (context, index) {
-                final candidate = controller.candidateData[index];
-                return CandidateTile(
-                  candidate: candidate,
-                );
-              },
-            );
+            if (!controller.isLoading) {
+              return ListView.builder(
+                itemCount: controller.candidateData.length,
+                itemBuilder: (context, index) {
+                  final candidate = controller.candidateData[index];
+                  return CandidateTile(
+                    candidate: candidate,
+                  );
+                },
+              );
+            }
+            return Center(child: CircularProgressIndicator());
           },
         ),
       ),
