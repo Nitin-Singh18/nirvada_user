@@ -26,7 +26,7 @@ class HomeController extends GetxController {
   List<CandidateModel> candidateData = [];
   void onTap() async {
     candidateData = (await HomeFuntion.candidateDetails())!;
-    startTimer();
+    // startTimer();
     isLoading = false;
     update();
   }

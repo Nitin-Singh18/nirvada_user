@@ -19,12 +19,12 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.QR_SCREEN;
+  static const INITIAL = Routes.LOGIN_SCREEN;
 
   static final routes = [
     GetPage(
       name: _Paths.HOME,
-      page: () => const HomeView(),
+      page: () => HomeView(),
       binding: HomeBinding(),
     ),
     GetPage(
@@ -49,7 +49,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.VOTE_SCREEN,
-      page: () => const VoteScreenView(),
+      page: () => VoteScreenView(),
       binding: VoteScreenBinding(),
     ),
     GetPage(

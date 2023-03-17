@@ -1,23 +1,8 @@
 import 'package:get/get.dart';
+import 'package:nirvada_user/app/modules/vote_screen/functions/vote_function.dart';
 
 class VoteScreenController extends GetxController {
-  //TODO: Implement VoteScreenController
-
-  final count = 0.obs;
-  @override
-  void onInit() {
-    super.onInit();
+  void onVote(String id, String voterId) async {
+    await VoteFunction.castVote(id, voterId);
   }
-
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
-  void onClose() {
-    super.onClose();
-  }
-
-  void increment() => count.value++;
 }

@@ -13,7 +13,7 @@ class LoginScreenController extends GetxController {
     update();
     await LoginFuntion.loginUser(reversedAuthId(authID.text), password.text);
 
-    Get.toNamed(Routes.HOME);
+    Get.toNamed(Routes.HOME, arguments: authID.text);
   }
 
   String reversedAuthId(String id) {

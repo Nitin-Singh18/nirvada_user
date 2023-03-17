@@ -6,7 +6,8 @@ import '../controllers/home_controller.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomeView extends GetView<HomeController> {
-  const HomeView({Key? key}) : super(key: key);
+  final authId = Get.arguments;
+  HomeView({Key? key}) : super(key: key);
   @override
   @override
   Widget build(BuildContext context) {
@@ -69,6 +70,7 @@ class HomeView extends GetView<HomeController> {
                   final candidate = controller.candidateData[index];
                   return CandidateTile(
                     candidate: candidate,
+                    authId: authId,
                   );
                 },
               );
