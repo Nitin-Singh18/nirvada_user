@@ -5,7 +5,7 @@ import '../../../data/widgets/xText.dart';
 import '../controllers/home_controller.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class HomeView extends GetView<HomeScreenController> {
+class HomeView extends GetView<HomeController> {
   const HomeView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {

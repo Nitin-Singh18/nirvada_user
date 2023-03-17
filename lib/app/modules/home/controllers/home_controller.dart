@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 
-class HomeScreenController extends GetxController {
-  //TODO: Implement StatusScreenControlle
+class HomeController extends GetxController {
+// void onTap() async {
+//     await HomeFuntion.candidateDetails();
+//   }
 }
