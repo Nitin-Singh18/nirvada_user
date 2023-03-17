@@ -5,7 +5,7 @@ import '../../../data/widgets/xText.dart';
 import '../controllers/home_controller.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class HomeView extends GetView<HomeController> {
+class HomeView extends GetView<HomeScreenController> {
   const HomeView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -53,14 +53,14 @@ class HomeView extends GetView<HomeController> {
           ],
         ),
       ),
-        body: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: ListView.builder(
-                itemCount: 10,
-                itemBuilder: (context, index) {
-                  return CandidateTile();
-                })),
-      );
+      body: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: ListView.builder(
+              itemCount: 10,
+              itemBuilder: (context, index) {
+                return CandidateTile();
+              })),
+    );
   }
 }
 

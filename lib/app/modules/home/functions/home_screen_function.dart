@@ -1,14 +1,12 @@
-
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:nirvada_user/app/data/base_api.dart';
-import 'package:nirvada_user/app/models/CandidateModel.dart';
 
-class HomeFuntion{
-  static Future<void>candidateDetails(
-      String id, String data) async {
+class HomeFuntion {
+  static Future<void> candidateDetails(String id, String data) async {
     try {
-      Uri uri = Uri.parse(BaseUrl.url + "/candidate_details/get_all_candidates");
+      Uri uri =
+          Uri.parse(BaseUrl.url + "/candidate_details/get_all_candidates");
 
       Map<String, String> body = {
         "id": id,
