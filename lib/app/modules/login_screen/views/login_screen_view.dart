@@ -16,7 +16,8 @@ class LoginScreenView extends GetView<LoginScreenController> {
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20.0.w),
         child:
-            Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.center, children: [
           SizedBox(
             height: 34.h,
           ),

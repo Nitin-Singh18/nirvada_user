@@ -5,7 +5,6 @@ import 'package:nirvada_user/app/data/widgets/xText.dart';
 
 class CandidateTile extends StatelessWidget {
   const CandidateTile({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Column(
