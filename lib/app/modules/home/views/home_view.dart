@@ -80,5 +80,3 @@ class HomeView extends GetView<HomeController> {
     );
   }
 }
-
-//12, 14, 16, 18, 20, 24
