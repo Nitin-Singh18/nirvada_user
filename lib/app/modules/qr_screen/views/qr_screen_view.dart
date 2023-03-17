@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'package:get/get.dart';
 import 'package:nirvada_user/app/data/widgets/c_button.dart';
-import 'package:qr_flutter/qr_flutter.dart';
 
 import '../../../data/widgets/custom_textfield.dart';
 import '../../../data/widgets/xText.dart';
 import '../controllers/qr_screen_controller.dart';
+import 'qr_scan_screen.dart';
 
 class QrScreenView extends GetView<QrScreenController> {
   const QrScreenView({Key? key}) : super(key: key);
@@ -70,10 +69,7 @@ class QrScreenView extends GetView<QrScreenController> {
             SizedBox(
               height: 16.h,
             ),
-            QrImage(
-              data: "flutter.dev",
-              size: 290.sp,
-            ),
+            QRCodeGenerator("flutter",290.sp),
             SizedBox(
               height: 30.h,
             ),

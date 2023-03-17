@@ -8,6 +8,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class HomeView extends GetView<HomeController> {
   const HomeView({Key? key}) : super(key: key);
   @override
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -22,18 +23,22 @@ class HomeView extends GetView<HomeController> {
             Container(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
-                children: const [
+                children: [
                   XText(
                     text: "Time left : ",
                     size: 14,
                     color: Colors.black87,
                     fontWeight: FontWeight.w600,
                   ),
-                  XText(
-                    text: "2:24:23",
-                    size: 14,
-                    color: Colors.black87,
-                    fontWeight: FontWeight.w600,
+                  GetBuilder<HomeController>(
+                    builder: (controller) {
+                      return XText(
+                        text: controller.start.toString(),
+                        size: 14,
+                        color: Colors.black87,
+                        fontWeight: FontWeight.w600,
+                      );
+                    },
                   ),
                 ],
               ),
@@ -53,13 +58,22 @@ class HomeView extends GetView<HomeController> {
           ],
         ),
       ),
-        body: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: ListView.builder(
-                itemCount: 10,
-                itemBuilder: (context, index) {
-                  return CandidateTile();
-                })),
-      );
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: GetBuilder<HomeController>(
+          builder: (controller) {
+            return ListView.builder(
+              itemCount: controller.candidateData.length,
+              itemBuilder: (context, index) {
+                final candidate = controller.candidateData[index];
+                return CandidateTile(
+                  candidate: candidate,
+                );
+              },
+            );
+          },
+        ),
+      ),
+    );
   }
 }
