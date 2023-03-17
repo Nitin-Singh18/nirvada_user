@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:nirvada_user/app/modules/home/views/home_view.dart';
 import 'package:nirvada_user/app/modules/login_screen/functions/login_screen_function.dart';
 
 class LoginScreenController extends GetxController {
@@ -8,7 +9,6 @@ class LoginScreenController extends GetxController {
 
   void onlogin() async {
     await LoginFuntion.loginUser(authID.text, password.text);
+    Get.to(HomeView());
   }
 }
-
-

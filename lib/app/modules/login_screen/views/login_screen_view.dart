@@ -10,13 +10,14 @@ import '../controllers/login_screen_controller.dart';
 
 class LoginScreenView extends GetView<LoginScreenController> {
   const LoginScreenView({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(LoginScreenController());
     return Scaffold(
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20.0.w),
-        child:
-            Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
+        child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
           SizedBox(
             height: 34.h,
           ),
@@ -54,21 +55,26 @@ class LoginScreenView extends GetView<LoginScreenController> {
             height: 32.h,
           ),
           InkWell(
-            onTap: (){
+            onTap: () {
               controller.onlogin();
             },
-            child: Container(
-              height: 50.h,
-              width: 320.w,
-              alignment: Alignment.center,
-              child: XText(
-                text: "LOGIN",
-                color: Colors.white,
-                size: 18.sp,
+            child: InkWell(
+              onTap: () {
+                controller.onlogin();
+              },
+              child: Container(
+                height: 50.h,
+                width: 320.w,
+                alignment: Alignment.center,
+                child: XText(
+                  text: "LOGIN",
+                  color: Colors.white,
+                  size: 18.sp,
+                ),
+                decoration: BoxDecoration(
+                    color: Color(0xff06038D),
+                    borderRadius: BorderRadius.circular(6.r)),
               ),
-              decoration: BoxDecoration(
-                  color: Color(0xff06038D),
-                  borderRadius: BorderRadius.circular(6.r)),
             ),
           ),
           SizedBox(
@@ -81,7 +87,9 @@ class LoginScreenView extends GetView<LoginScreenController> {
                 text: "Need help?",
                 color: Color(0xff06038D),
               ),
-              XText(text: 'Contact us at 18x.',)
+              XText(
+                text: 'Contact us at 18x.',
+              )
             ],
           )
         ]),

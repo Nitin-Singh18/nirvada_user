@@ -26,9 +26,10 @@ class CandidateTile extends StatelessWidget {
                     height: 70.h,
                     width: 60.w,
                     decoration: BoxDecoration(
-                      image: DecorationImage(
-                          image: NetworkImage(candidate.candidateImage)),
-                    ),
+                        // image: DecorationImage(
+                        //     image: NetworkImage(candidate.candidateImage)
+                        //     ),
+                        ),
                   ),
                   SizedBox(
                     width: 10.w,
@@ -54,10 +55,10 @@ class CandidateTile extends StatelessWidget {
                   SizedBox(
                     width: 20.w,
                   ),
-                  Image.network(
-                    candidate.partySign,
-                    height: 52.sp,
-                  ),
+                  // Image.network(
+                  //   candidate.partySign,
+                  //   height: 52.sp,
+                  // ),
                 ]),
             decoration: BoxDecoration(
                 color: Colors.white,
