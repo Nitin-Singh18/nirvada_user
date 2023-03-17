@@ -8,6 +8,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class HomeView extends GetView<HomeController> {
   const HomeView({Key? key}) : super(key: key);
   @override
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -55,11 +56,18 @@ class HomeView extends GetView<HomeController> {
       ),
       body: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: ListView.builder(
-              itemCount: 10,
-              itemBuilder: (context, index) {
-                return CandidateTile();
-              })),
+          child: GetBuilder<HomeController>(
+            builder: (context) {
+              return ListView.builder(
+                  itemCount: controller.candidateData.length,
+                  itemBuilder: (context, index) {
+                    final candidate = controller.candidateData[index];
+                    return CandidateTile(
+                      candidate: candidate,
+                    );
+                  });
+            },
+          )),
     );
   }
 }

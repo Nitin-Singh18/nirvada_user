@@ -1,18 +1,23 @@
+import 'package:flutter/material.dart';
+
 class CandidateModel {
   late String id;
-  late String data;
+  late String partySign;
+  late String candidateName;
+  late String partyName;
+  late String candidateImage;
 
-  CandidateModel({required this.id, required this.data});
+  CandidateModel(
+      {required this.id,
+      required this.partySign,
+      required this.candidateName,
+      required this.candidateImage,
+      required this.partyName});
 
-  CandidateModel.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    data = json['data'];
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['data'] = this.data;
-    return data;
-  }
+  CandidateModel.fromJson(Map<String, dynamic> json)
+      : id = json['id'],
+        partySign = json['party_sign'],
+        candidateName = json['candidate_image'],
+        partyName = json['party_name'],
+        candidateImage = json['candidate_image'];
 }

@@ -2,16 +2,18 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nirvada_user/app/data/widgets/xText.dart';
+import 'package:nirvada_user/app/models/CandidateModel.dart';
 
 class CandidateTile extends StatelessWidget {
-  const CandidateTile({super.key});
+  final CandidateModel candidate;
+  const CandidateTile({super.key, required this.candidate});
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         InkWell(
-          onTap: (){},
+          onTap: () {},
           child: Container(
             width: 345.w,
             height: 80.h,
@@ -23,9 +25,9 @@ class CandidateTile extends StatelessWidget {
                   Container(
                     height: 70.h,
                     width: 60.w,
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
                       image: DecorationImage(
-                          image: AssetImage('assets/images/image3.png')),
+                          image: NetworkImage(candidate.candidateImage)),
                     ),
                   ),
                   SizedBox(
@@ -39,11 +41,11 @@ class CandidateTile extends StatelessWidget {
                         size: 18,
                         color: Colors.black87,
                         fontWeight: FontWeight.bold,
-                        text: "Narendra D.Modi",
+                        text: candidate.candidateName,
                       ),
                       XText(
                         size: 14,
-                        text: "Bhartiya Janta Party (BJP)",
+                        text: candidate.partyName,
                         color: Color(0xB31B1B1B),
                         fontWeight: FontWeight.w500,
                       ),
@@ -52,8 +54,8 @@ class CandidateTile extends StatelessWidget {
                   SizedBox(
                     width: 20.w,
                   ),
-                  Image.asset(
-                    "assets/images/image4.png",
+                  Image.network(
+                    candidate.partySign,
                     height: 52.sp,
                   ),
                 ]),
