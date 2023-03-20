@@ -12,9 +12,14 @@ class RegisterScreenController extends GetxController {
   void onRegister() async {
     isLoading = true;
     update();
-    String voterID =
+
+    print(voterId.text);
+    print(phoneNumber.text);
+    String adhaar =
         await RegisterFuntions.registerUser(voterId.text, phoneNumber.text);
-    QRFucntions.encrypt(voterID);
+    // print(adhaar);
+
+    QRFucntions.encrypt(adhaar);
     isLoading = false;
     Get.toNamed(Routes.QR_SCREEN);
   }

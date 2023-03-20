@@ -37,11 +37,7 @@ class LButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-<<<<<<< HEAD
-      onTap: onTap,
-=======
       onTap: () => onTap(),
->>>>>>> 2fa67cbc4b585a83087a5f49c759edbaf7e6135d
       child: Container(
         height: 70.h,
         width: 320.w,
