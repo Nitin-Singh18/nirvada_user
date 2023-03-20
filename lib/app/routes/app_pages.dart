@@ -19,7 +19,7 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.FACIAL_RECOGNITION_SCREEN;
+  static const INITIAL = Routes.VOTE_SCREEN;
 
   static final routes = [
     GetPage(

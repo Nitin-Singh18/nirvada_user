@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:nirvada_user/app/data/widgets/c_button.dart';
 import 'package:nirvada_user/app/data/widgets/status_widget.dart';
 import 'package:nirvada_user/app/data/widgets/xText.dart';
+import 'package:nirvada_user/app/routes/app_pages.dart';
 
 import '../controllers/status_screen_controller.dart';
 
@@ -31,7 +32,10 @@ class StatusScreenView extends GetView<StatusScreenController> {
             RichText(
                 textAlign: TextAlign.center,
                 text: TextSpan(
+                  
                     style: TextStyle(
+                      height: 1.2,
+                        fontFamily: "Poppins",
                         color: Colors.black,
                         fontSize: 24.sp,
                         fontWeight: FontWeight.w600),
@@ -83,7 +87,9 @@ class StatusScreenView extends GetView<StatusScreenController> {
             ),
             CButton(
               title: "Go back to login",
-              onTap: () {},
+              onTap: () {
+                Get.toNamed(Routes.LOGIN_SCREEN);
+              },
             ),
             SizedBox(
               height: 40.h,
@@ -92,6 +98,7 @@ class StatusScreenView extends GetView<StatusScreenController> {
                 textAlign: TextAlign.center,
                 text: TextSpan(
                     style: TextStyle(
+                      fontFamily: "Poppins",
                         color: Color(0xB31B1B1B),
                         fontSize: 12.sp,
                         fontWeight: FontWeight.w400),

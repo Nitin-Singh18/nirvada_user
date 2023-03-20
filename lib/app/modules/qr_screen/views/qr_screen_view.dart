@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:nirvada_user/app/data/widgets/appNameText.dart';
 import 'package:nirvada_user/app/data/widgets/c_button.dart';
 
 import '../../../data/widgets/custom_textfield.dart';
@@ -21,41 +22,7 @@ class QrScreenView extends GetView<QrScreenController> {
             SizedBox(
               height: 26.h,
             ),
-            RichText(
-              text: TextSpan(
-                style: TextStyle(fontSize: 24.sp, fontWeight: FontWeight.w600),
-                children: [
-                  TextSpan(
-                    text: 'N',
-                    style: TextStyle(color: Color(0xffFF671F)),
-                  ),
-                  TextSpan(
-                    text: 'r',
-                    style: TextStyle(color: Color(0xffFF671F)),
-                  ),
-                  TextSpan(
-                    text: 'i',
-                    style: TextStyle(color: Color(0xffFF671F)),
-                  ),
-                  TextSpan(
-                    text: 'v',
-                    style: TextStyle(color: Color(0xff06038D)),
-                  ),
-                  TextSpan(
-                    text: 'ā',
-                    style: TextStyle(color: Color(0xff046A38)),
-                  ),
-                  TextSpan(
-                    text: 'd',
-                    style: TextStyle(color: Color(0xff046A38)),
-                  ),
-                  TextSpan(
-                    text: 'a',
-                    style: TextStyle(color: Color(0xff046A38)),
-                  ),
-                ],
-              ),
-            ),
+            AppNameText(),
             XText(
               text: "Be a responsible citizen",
             ),
