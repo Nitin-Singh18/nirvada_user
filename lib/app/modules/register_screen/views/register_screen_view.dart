@@ -13,7 +13,7 @@ class RegisterScreenView extends GetView<RegisterScreenController> {
   Widget build(BuildContext context) {
     return SafeArea(child: Scaffold(
         body: GetBuilder<RegisterScreenController>(builder: (controller) {
-      if (controller.isLoading) {
+      if (!controller.isLoading) {
         return SingleChildScrollView(
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 20.0.w),

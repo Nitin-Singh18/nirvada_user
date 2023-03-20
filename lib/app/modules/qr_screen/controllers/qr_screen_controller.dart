@@ -1,23 +1,8 @@
 import 'package:get/get.dart';
+import 'package:encrypt/encrypt.dart';
+
+import '../../register_screen/controllers/register_screen_controller.dart';
 
 class QrScreenController extends GetxController {
-  //TODO: Implement QrScreenController
-
-  final count = 0.obs;
-  @override
-  void onInit() {
-    super.onInit();
-  }
-
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
-  void onClose() {
-    super.onClose();
-  }
-
-  void increment() => count.value++;
+  // final registerController = Get.find<RegisterScreenController>();
 }
