@@ -22,9 +22,11 @@ class RegisterFuntions {
         },
         body: json.encode(body),
       );
-
+      print(response.body);
       Map<String, dynamic> data = json.decode(response.body);
+
       String voterId = data['data']['voter_id_number'];
+
       return voterId;
     } catch (e) {
       print(e);
