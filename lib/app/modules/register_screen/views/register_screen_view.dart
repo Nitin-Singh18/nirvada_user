@@ -52,12 +52,11 @@ class RegisterScreenView extends GetView<RegisterScreenController> {
                       controller: controller.voterId,
                       maxLength: 12,
                       validator: (value) {
-                          if (value.isEmpty || value.length<12) {
-                            return "Enter a valid aadhaar number";
-                          }
-                          return null;
-                        },
-
+                        if (value.isEmpty || value.length < 12) {
+                          return "Enter a valid aadhaar number";
+                        }
+                        return null;
+                      },
                     ),
                     SizedBox(
                       height: 12.h,
@@ -68,11 +67,11 @@ class RegisterScreenView extends GetView<RegisterScreenController> {
                       controller: controller.phoneNumber,
                       maxLength: 10,
                       validator: (value) {
-                          if (value.isEmpty || value.length<10) {
-                            return "Enter a valid phone number";
-                          }
-                          return null;
-                        },
+                        if (value.isEmpty || value.length < 10) {
+                          return "Enter a valid phone number";
+                        }
+                        return null;
+                      },
                     ),
                     SizedBox(
                       height: 32.h,
@@ -81,7 +80,8 @@ class RegisterScreenView extends GetView<RegisterScreenController> {
                         title: "REGISTER",
                         onTap: () {
                           if (formKey.currentState!.validate()) {
-                            controller.onRegister();}
+                            controller.onRegister();
+                          }
                         }),
                     SizedBox(
                       height: 40.h,
