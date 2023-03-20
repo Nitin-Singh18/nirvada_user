@@ -7,14 +7,15 @@ import 'package:nirvada_user/app/routes/app_pages.dart';
 import '../functions/home_screen_function.dart';
 
 class HomeController extends GetxController {
-  int start = 10;
+  int start = 60;
   late Timer timer;
+  bool isLoading = true;
 
   void startTimer() {
     const oneSec = const Duration(seconds: 1);
     timer = new Timer.periodic(oneSec, (timer) {
       if (start == 0) {
-        Get.offAllNamed(Routes.LOGIN_SCREEN);
+        Get.offAllNamed(Routes.QR_SCREEN);
       } else {
         start--;
         update();
@@ -25,6 +26,8 @@ class HomeController extends GetxController {
   List<CandidateModel> candidateData = [];
   void onTap() async {
     candidateData = (await HomeFuntion.candidateDetails())!;
+    // startTimer();
+    isLoading = false;
     update();
   }
 
@@ -32,7 +35,6 @@ class HomeController extends GetxController {
   void onInit() {
     super.onInit();
     onTap();
-    startTimer();
   }
 
   @override

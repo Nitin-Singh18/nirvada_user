@@ -2,10 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:nirvada_user/app/data/widgets/xText.dart';
+import 'package:nirvada_user/app/modules/vote_screen/functions/vote_function.dart';
 
 import '../../../routes/app_pages.dart';
 
 class VoteScreenController extends GetxController {
+
+
+
+  void onVote(String id, String voterId) async {
+    await VoteFunction.castVote(id, voterId);
+  }
 
   final count = 0.obs;
 
@@ -36,15 +43,4 @@ class VoteScreenController extends GetxController {
     super.onInit();
   }
 
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
-  void onClose() {
-    super.onClose();
-  }
-
-  void increment() => count.value++;
 }

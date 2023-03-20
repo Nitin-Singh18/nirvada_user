@@ -3,6 +3,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:nirvada_user/app/data/widgets/appNameText.dart';
 import 'package:nirvada_user/app/data/widgets/c_button.dart';
+import 'package:nirvada_user/app/modules/qr_screen/functions/qr_funtions.dart';
+import 'package:nirvada_user/app/routes/app_pages.dart';
+import 'package:qr_flutter/qr_flutter.dart';
 
 import '../../../data/widgets/custom_textfield.dart';
 import '../../../data/widgets/xText.dart';
@@ -36,7 +39,16 @@ class QrScreenView extends GetView<QrScreenController> {
             SizedBox(
               height: 16.h,
             ),
-            QRCodeGenerator("flutter",290.sp),
+            QRCodeGenerator(QRFucntions.qrVoterID, 290.sp),
+            // QrImage(
+            //   data: "This is flutter",
+            //   version: QrVersions.auto,
+            //   size: 200.sp,
+            //   gapless: true,
+            //   foregroundColor: Colors.black,
+            //   backgroundColor: Colors.white,
+            //   errorCorrectionLevel: QrErrorCorrectLevel.Q,
+            // ),
             SizedBox(
               height: 30.h,
             ),
@@ -76,7 +88,10 @@ class QrScreenView extends GetView<QrScreenController> {
             Align(
               alignment: Alignment.center,
               child: InkWell(
-                onTap: () {},
+                onTap: () {
+                  Get.toNamed(Routes.LOGIN_SCREEN);
+                  // controller.encrypt("hello");
+                },
                 child: Container(
                   height: 50.h,
                   width: 260.w,

@@ -1,10 +1,11 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 import 'package:nirvada_user/app/data/base_api.dart';
 
 class RegisterFuntions {
-  static Future<void> registerUser(
+  static Future<String> registerUser(
       String voterIdNumber, String mobileNumber) async {
     try {
       Uri uri = Uri.parse(BaseUrl.url + "user/signup");
@@ -22,10 +23,12 @@ class RegisterFuntions {
         body: json.encode(body),
       );
 
-      print(response.statusCode);
-      print(response.body);
+      Map<String, dynamic> data = json.decode(response.body);
+      String voterId = data['data']['voter_id_number'];
+      return voterId;
     } catch (e) {
       print(e);
+      return "";
     }
   }
 }

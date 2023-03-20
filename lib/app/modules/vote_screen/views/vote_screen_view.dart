@@ -2,11 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:nirvada_user/app/data/widgets/c_button.dart';
+import 'package:nirvada_user/app/models/CandidateModel.dart';
+import 'package:nirvada_user/app/routes/app_pages.dart';
 import '../../../data/widgets/xText.dart';
 import '../controllers/vote_screen_controller.dart';
 
 class VoteScreenView extends GetView<VoteScreenController> {
-  const VoteScreenView({Key? key}) : super(key: key);
+  final CandidateModel candidate =
+      CandidateModel.fromJson(Get.arguments['candidate']);
+  final String authId = Get.arguments['authId'];
+
+  VoteScreenView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -1,19 +1,29 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:nirvada_user/app/data/widgets/xText.dart';
 import 'package:nirvada_user/app/models/CandidateModel.dart';
 
+import '../../routes/app_pages.dart';
+
 class CandidateTile extends StatelessWidget {
   final CandidateModel candidate;
-  const CandidateTile({super.key, required this.candidate});
+  final String authId;
+  const CandidateTile(
+      {super.key, required this.candidate, required this.authId});
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         InkWell(
-          onTap: () {},
+          onTap: () {
+            Get.toNamed(Routes.VOTE_SCREEN, arguments: {
+              'candidate': candidate.toJson(),
+              'authId': authId,
+            });
+          },
           child: Container(
             width: 345.w,
             height: 80.h,
