@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:nirvada_user/app/data/widgets/c_button.dart';
 import 'package:nirvada_user/app/data/widgets/candidate_title.dart';
 import '../../../data/widgets/xText.dart';
 import '../controllers/home_controller.dart';
@@ -12,74 +13,73 @@ class HomeView extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.white,
-        toolbarHeight: 90,
-        flexibleSpace: Column(
-          children: [
-            SizedBox(
-              height: 20.h,
-            ),
-            Container(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Container(
+            width: double.infinity,
+            child: Padding(
+              padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 16.w),
+              child: Column(
                 children: [
-                  XText(
-                    text: "Time left : ",
-                    size: 14,
-                    color: Colors.black87,
-                    fontWeight: FontWeight.w600,
+                  Container(
+                      alignment: Alignment.centerRight,
+                      child: GetBuilder<HomeController>(
+                        builder: (controller) {
+                          return RichText(
+                              text: TextSpan(
+                                  style: TextStyle(
+                                    fontFamily: "Poppins",
+                                    fontSize: 14.sp,
+                                    fontWeight: FontWeight.w600,
+                                    color: Color(0xff1b1b1b),
+                                  ),
+                                  children: [
+                                TextSpan(
+                                    text: "Time Left : ${controller.start.toString()} ",
+                                    style: TextStyle(
+                                      fontFamily: "Poppins",
+                                      fontSize: 14.sp,
+                                      fontWeight: FontWeight.w600,
+                                      color: Color(0xff1b1b1b),
+                                    )),
+                              ]));
+                        }
+                      )),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: XText(
+                      text: "Select your candidate -",
+                      size: 18.sp,
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
+                  SizedBox(height: 48.h),
                   GetBuilder<HomeController>(
                     builder: (controller) {
-                      return XText(
-                        text: controller.start.toString(),
-                        size: 14,
-                        color: Colors.black87,
-                        fontWeight: FontWeight.w600,
-                      );
+                      if (!controller.isLoading) {
+                        return Expanded(
+                          child: ListView.builder(
+                            itemCount: controller.candidateData.length,
+                            itemBuilder: (context, index) {
+                              final candidate = controller.candidateData[index];
+                              return CandidateTile(
+                                candidate: candidate,
+                                authId: authId,
+                              );
+                            },
+                          ),
+                        );
+                      }
+                      return Center(child: CircularProgressIndicator());
                     },
-                  ),
+                  )
                 ],
               ),
             ),
-            const SizedBox(
-              height: 35,
-            ),
-            Container(
-              alignment: Alignment.centerLeft,
-              child: const XText(
-                text: "  Select your candidate -",
-                size: 18,
-                color: Colors.black87,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-          ],
-        ),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: GetBuilder<HomeController>(
-          builder: (controller) {
-            if (!controller.isLoading) {
-              return ListView.builder(
-                itemCount: controller.candidateData.length,
-                itemBuilder: (context, index) {
-                  final candidate = controller.candidateData[index];
-                  return CandidateTile(
-                    candidate: candidate,
-                    authId: authId,
-                  );
-                },
-              );
-            }
-            return Center(child: CircularProgressIndicator());
-          },
+          ),
         ),
       ),
     );
+   
   }
 }
