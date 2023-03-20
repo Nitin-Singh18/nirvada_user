@@ -54,7 +54,7 @@ class LoginScreenView extends GetView<LoginScreenController> {
                         controller: controller.authID,
                         maxLength: 12,
                         validator: (value) {
-                          if (value.isEmpty || value.length < 12) {
+                          if (value.isEmpty ) {
                             return "Enter a valid aadhaar number";
                           }
                           return null;

@@ -12,7 +12,7 @@ class RegisterFuntions {
 
       Map<String, String> body = {
         "voter_id_number": voterIdNumber,
-        "mobile_number": mobileNumber,
+        "mobile_number": "+91" + mobileNumber,
       };
 
       final response = await http.post(
