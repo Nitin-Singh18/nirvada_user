@@ -5,19 +5,23 @@ import 'package:nirvada_user/app/data/widgets/appNameText.dart';
 import 'package:nirvada_user/app/data/widgets/c_button.dart';
 import 'package:nirvada_user/app/data/widgets/custom_textfield.dart';
 import 'package:nirvada_user/app/data/widgets/xText.dart';
-import 'package:nirvada_user/app/routes/app_pages.dart';
 import '../controllers/register_screen_controller.dart';
 
 class RegisterScreenView extends GetView<RegisterScreenController> {
   const RegisterScreenView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: SingleChildScrollView(
+    final formKey = GlobalKey<FormState>();
+
+    return SafeArea(child: Scaffold(
+        body: GetBuilder<RegisterScreenController>(builder: (controller) {
+      if (!controller.isLoading) {
+        return SingleChildScrollView(
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 20.0.w),
-            child: Column(
+            child: Form(
+              key: formKey,
+              child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   SizedBox(
@@ -43,23 +47,41 @@ class RegisterScreenView extends GetView<RegisterScreenController> {
                     height: 40.h,
                   ),
                   CustomTextField(
-                      title: "Voter ID",
-                      hintText: "Enter your voter ID here",
-                      controller: controller.voterId),
+                    title: "Aadhaar Number",
+                    hintText: "Enter your aadhaar no. here",
+                    controller: controller.voterId,
+                    maxLength: 12,
+                    validator: (value) {
+                      if (value.isEmpty || value.length < 12) {
+                        return "Enter a valid aadhaar number";
+                      }
+                      return null;
+                    },
+                  ),
                   SizedBox(
-                    height: 26.h,
+                    height: 12.h,
                   ),
                   CustomTextField(
-                      title: "Phone Number",
-                      hintText: "Enter your registered phone number",
-                      controller: controller.phoneNumber),
+                    title: "Phone Number",
+                    hintText: "Enter your registered phone number",
+                    controller: controller.phoneNumber,
+                    maxLength: 10,
+                    validator: (value) {
+                      if (value.isEmpty || value.length < 10) {
+                        return "Enter a valid phone number";
+                      }
+                      return null;
+                    },
+                  ),
                   SizedBox(
                     height: 32.h,
                   ),
                   CButton(
                       title: "REGISTER",
                       onTap: () {
-                        controller.onRegister();
+                        if (formKey.currentState!.validate()) {
+                          controller.onRegister();
+                        }
                       }),
                   SizedBox(
                     height: 40.h,
@@ -76,10 +98,16 @@ class RegisterScreenView extends GetView<RegisterScreenController> {
                       )
                     ],
                   )
-                ]),
+                ],
+              ),
+            ),
           ),
-        ),
-      ),
-    );
+        );
+      } else {
+        return Center(
+          child: CircularProgressIndicator(),
+        );
+      }
+    })));
   }
 }

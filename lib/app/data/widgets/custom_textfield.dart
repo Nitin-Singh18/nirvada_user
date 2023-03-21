@@ -8,12 +8,15 @@ class CustomTextField extends StatefulWidget {
   final TextEditingController controller;
   final validator;
   final bool? isObsecure;
+
   final suffixIcon;
+  final int maxLength;
   const CustomTextField(
       {super.key,
       required this.title,
       required this.hintText,
       required this.controller,
+      this.maxLength = 20,
       this.validator,
       this.isObsecure,
       this.suffixIcon});
@@ -44,6 +47,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
           child: TextFormField(
             controller: widget.controller,
             validator: widget.validator,
+            maxLength: widget.maxLength,
             obscureText: widget.isObsecure ?? false,
             cursorColor: Color(0xff1b1b1b),
             style: TextStyle(

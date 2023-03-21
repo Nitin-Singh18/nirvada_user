@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'package:get/get.dart';
+import 'package:nirvada_user/app/data/widgets/appNameText.dart';
 import 'package:nirvada_user/app/data/widgets/c_button.dart';
+import 'package:nirvada_user/app/modules/qr_screen/functions/qr_funtions.dart';
+import 'package:nirvada_user/app/routes/app_pages.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
 import '../../../data/widgets/custom_textfield.dart';
 import '../../../data/widgets/xText.dart';
 import '../controllers/qr_screen_controller.dart';
+import 'qr_scan_screen.dart';
 
 class QrScreenView extends GetView<QrScreenController> {
   const QrScreenView({Key? key}) : super(key: key);
@@ -22,41 +25,7 @@ class QrScreenView extends GetView<QrScreenController> {
             SizedBox(
               height: 26.h,
             ),
-            RichText(
-              text: TextSpan(
-                style: TextStyle(fontSize: 24.sp, fontWeight: FontWeight.w600),
-                children: [
-                  TextSpan(
-                    text: 'N',
-                    style: TextStyle(color: Color(0xffFF671F)),
-                  ),
-                  TextSpan(
-                    text: 'r',
-                    style: TextStyle(color: Color(0xffFF671F)),
-                  ),
-                  TextSpan(
-                    text: 'i',
-                    style: TextStyle(color: Color(0xffFF671F)),
-                  ),
-                  TextSpan(
-                    text: 'v',
-                    style: TextStyle(color: Color(0xff06038D)),
-                  ),
-                  TextSpan(
-                    text: 'ā',
-                    style: TextStyle(color: Color(0xff046A38)),
-                  ),
-                  TextSpan(
-                    text: 'd',
-                    style: TextStyle(color: Color(0xff046A38)),
-                  ),
-                  TextSpan(
-                    text: 'a',
-                    style: TextStyle(color: Color(0xff046A38)),
-                  ),
-                ],
-              ),
-            ),
+            AppNameText(),
             XText(
               text: "Be a responsible citizen",
             ),
@@ -70,10 +39,16 @@ class QrScreenView extends GetView<QrScreenController> {
             SizedBox(
               height: 16.h,
             ),
-            QrImage(
-              data: "flutter.dev",
-              size: 290.sp,
-            ),
+            QRCodeGenerator(QRFucntions.qrVoterID, 290.sp),
+            // QrImage(
+            //   data: "This is flutter",
+            //   version: QrVersions.auto,
+            //   size: 200.sp,
+            //   gapless: true,
+            //   foregroundColor: Colors.black,
+            //   backgroundColor: Colors.white,
+            //   errorCorrectionLevel: QrErrorCorrectLevel.Q,
+            // ),
             SizedBox(
               height: 30.h,
             ),
@@ -113,7 +88,10 @@ class QrScreenView extends GetView<QrScreenController> {
             Align(
               alignment: Alignment.center,
               child: InkWell(
-                onTap: () {},
+                onTap: () {
+                  Get.toNamed(Routes.LOGIN_SCREEN);
+                  // controller.encrypt("hello");
+                },
                 child: Container(
                   height: 50.h,
                   width: 260.w,

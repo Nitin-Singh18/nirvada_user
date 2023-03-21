@@ -2,9 +2,12 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:nirvada_user/app/modules/facial_recognition_screen/functions/functions.dart';
+
+import '../../../data/widgets/xText.dart';
 
 class FacialRecognitionScreenController extends GetxController {
   File? image1;
@@ -27,7 +30,7 @@ class FacialRecognitionScreenController extends GetxController {
   Future<void> showImagePickerDialog(int boxNumber) async {
     Get.dialog(
       AlertDialog(
-        title: Text('Add Photo'),
+        title: XText(text:'Add Photo', size: 18.sp, fontWeight: FontWeight.bold,),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -35,17 +38,17 @@ class FacialRecognitionScreenController extends GetxController {
             GestureDetector(
               onTap: () {
                 Get.back();
-                _pickImage(ImageSource.gallery, boxNumber);
+                _pickImage(ImageSource.camera, boxNumber);
               },
-              child: Text('Choose from Gallery'),
+              child: XText(text: 'Take a photo', size: 14.sp,),
             ),
             SizedBox(height: 16),
             GestureDetector(
               onTap: () {
                 Get.back();
-                _pickImage(ImageSource.camera, boxNumber);
+                _pickImage(ImageSource.gallery, boxNumber);
               },
-              child: Text('Take a Photo'),
+              child:  XText(text: 'Choose from gallery', size: 14.sp,),
             ),
           ],
         ),
