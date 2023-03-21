@@ -13,7 +13,7 @@ class FacialRecognitionScreenController extends GetxController {
   File? image1;
   File? image2;
   RxBool isLoading = false.obs;
-  String matchPercentage = "";
+  String matchPercentage = "0";
 
   Future<void> _pickImage(ImageSource source, int boxNumber) async {
     final pickedFile = await ImagePicker().pickImage(source: source);
@@ -30,7 +30,11 @@ class FacialRecognitionScreenController extends GetxController {
   Future<void> showImagePickerDialog(int boxNumber) async {
     Get.dialog(
       AlertDialog(
-        title: XText(text:'Add Photo', size: 18.sp, fontWeight: FontWeight.bold,),
+        title: XText(
+          text: 'Add Photo',
+          size: 18.sp,
+          fontWeight: FontWeight.bold,
+        ),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -40,7 +44,10 @@ class FacialRecognitionScreenController extends GetxController {
                 Get.back();
                 _pickImage(ImageSource.camera, boxNumber);
               },
-              child: XText(text: 'Take a photo', size: 14.sp,),
+              child: XText(
+                text: 'Take a photo',
+                size: 14.sp,
+              ),
             ),
             SizedBox(height: 16),
             GestureDetector(
@@ -48,7 +55,10 @@ class FacialRecognitionScreenController extends GetxController {
                 Get.back();
                 _pickImage(ImageSource.gallery, boxNumber);
               },
-              child:  XText(text: 'Choose from gallery', size: 14.sp,),
+              child: XText(
+                text: 'Choose from gallery',
+                size: 14.sp,
+              ),
             ),
           ],
         ),
@@ -69,7 +79,7 @@ class FacialRecognitionScreenController extends GetxController {
       print(image2Encoded);
       matchPercentage = await FacialRecognisitionFunction.compareImages(
             image1Encoded,
-            image2Encoded,
+            "https://firebasestorage.googleapis.com/v0/b/learning-fire-base-4e1c9.appspot.com/o/WhatsApp%20Image%202023-03-13%20at%2012.21.19.jpg?alt=media&token=2cfac805-9b7d-4c24-a6a3-6a573b839635",
           ) ??
           "Something Went Wrong";
 

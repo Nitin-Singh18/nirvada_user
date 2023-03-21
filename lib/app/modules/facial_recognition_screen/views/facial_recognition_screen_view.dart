@@ -13,22 +13,12 @@ class FacialRecognitionScreenView
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-<<<<<<< HEAD
-      appBar: AppBar(title: const Text('Facial Recognition')),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-=======
       body: Padding(
           padding: EdgeInsets.symmetric(vertical: 24.h, horizontal: 20.0.w),
           child: SizedBox(
             width: double.infinity,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
->>>>>>> 49618948bd65b3676a8ee89b63d920edf47795d2
               children: [
                 SizedBox(
                   height: 34.h,
@@ -74,33 +64,16 @@ class FacialRecognitionScreenView
                           }),
                         ),
                       ),
-                      GestureDetector(
-                        onTap: () => controller.showImagePickerDialog(2),
-                        child: Container(
-                          width: 100,
-                          height: 100,
-                          decoration: BoxDecoration(
-                            color: Colors.grey.shade300,
-                          ),
-                          child: GetBuilder<FacialRecognitionScreenController>(
-                              builder: (controller) {
-                            return controller.image2 == null
-                                ? const Icon(Icons.add, size: 50)
-                                : Image.file(controller.image2!,
-                                    fit: BoxFit.cover);
-                          }),
-                        ),
-                      ),
                     ],
                   ),
                 ),
                 GetBuilder<FacialRecognitionScreenController>(
                     builder: (controller) {
-                  if (controller.matchPercentage.isNotEmpty) {
+                  if (int.parse(controller.matchPercentage) > 80) {
                     return XText(
-                      size: 18.sp,
-                      fontWeight: FontWeight.w600,
-                      isCenter: true,
+                        size: 18.sp,
+                        fontWeight: FontWeight.w600,
+                        isCenter: true,
                         text:
                             "You have been verified with\n${controller.matchPercentage}% accuracy");
                   } else {
@@ -117,7 +90,7 @@ class FacialRecognitionScreenView
                     );
                   } else {
                     return Padding(
-                      padding: EdgeInsets.symmetric(vertical:18.h),
+                      padding: EdgeInsets.symmetric(vertical: 18.h),
                       child: CButton(
                           title: "Verify",
                           width: 250.w,
