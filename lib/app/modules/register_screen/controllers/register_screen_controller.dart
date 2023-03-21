@@ -7,6 +7,8 @@ import 'package:nirvada_user/app/routes/app_pages.dart';
 class RegisterScreenController extends GetxController {
   final TextEditingController voterId = TextEditingController();
   final TextEditingController phoneNumber = TextEditingController();
+  Map<String, dynamic> userData = {};
+
   bool isLoading = false;
 
   void onRegister() async {
@@ -15,11 +17,11 @@ class RegisterScreenController extends GetxController {
 
     print(voterId.text);
     print(phoneNumber.text);
-    String adhaar =
+    userData =
         await RegisterFuntions.registerUser(voterId.text, phoneNumber.text);
     // print(adhaar);
 
-    QRFucntions.encrypt(adhaar);
+    QRFucntions.encrypt(userData['data']['voter_id_number']);
     isLoading = false;
     Get.toNamed(Routes.QR_SCREEN);
   }
