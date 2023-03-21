@@ -14,7 +14,7 @@ class FacialRecognitionScreenView
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Two Box Image Picker')),
+      appBar: AppBar(title: const Text('Facial Recognition')),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
