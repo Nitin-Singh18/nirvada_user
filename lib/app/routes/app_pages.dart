@@ -44,7 +44,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.STATUS_SCREEN,
-      page: () => const StatusScreenView(),
+      page: () => StatusScreenView(),
       binding: StatusScreenBinding(),
     ),
     GetPage(

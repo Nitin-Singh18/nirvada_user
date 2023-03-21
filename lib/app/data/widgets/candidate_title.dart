@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -36,10 +38,10 @@ class CandidateTile extends StatelessWidget {
                     height: 70.h,
                     width: 60.w,
                     decoration: BoxDecoration(
-                        // image: DecorationImage(
-                        //     image: NetworkImage(candidate.candidateImage)
-                        //     ),
-                        ),
+                      image: DecorationImage(
+                          image: MemoryImage(
+                              base64Decode(candidate.candidateImage))),
+                    ),
                   ),
                   SizedBox(
                     width: 10.w,
@@ -56,7 +58,7 @@ class CandidateTile extends StatelessWidget {
                       ),
                       XText(
                         size: 14,
-                        text: candidate.partyName,
+                        text: candidate.candidatePartyName,
                         color: Color(0xB31B1B1B),
                         fontWeight: FontWeight.w500,
                       ),

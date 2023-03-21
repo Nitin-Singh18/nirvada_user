@@ -1,37 +1,45 @@
-import 'package:flutter/material.dart';
-
 class CandidateModel {
-  late String id;
-  late String partySign;
+  late String candidateId;
+  late String electionId;
   late String candidateName;
-  late String partyName;
+  late String candidatePartyName;
+  late String candidatePartySign;
   late String candidateImage;
-  late String location;
+  late int candidateVoteCount;
+  late String booth;
 
-  CandidateModel(
-      {required this.id,
-      required this.partySign,
-      required this.candidateName,
-      required this.candidateImage,
-      required this.partyName,
-      required this.location});
+  CandidateModel({
+    required this.candidateId,
+    required this.electionId,
+    required this.candidateName,
+    required this.candidatePartyName,
+    required this.candidatePartySign,
+    required this.candidateVoteCount,
+    required this.candidateImage,
+    required this.booth,
+  });
 
-  CandidateModel.fromJson(Map<String, dynamic> json)
-      : id = json['id'],
-        partySign = json['party_sign'],
-        candidateName = json['candidate_name'],
-        partyName = json['party_name'],
-        candidateImage = json['candidate_image'],
-        location = json['booth'];
+  CandidateModel.fromJson(Map<String, dynamic> json) {
+    candidateId = json['candidate_id'];
+    electionId = json['election_id'];
+    candidateName = json['candidate_name'];
+    candidatePartyName = json['candidate_party_name'];
+    candidatePartySign = json['candidate_party_sign'];
+    candidateVoteCount = json['candidate_vote_count'];
+    candidateImage = json['candidate_image'];
+    booth = json['booth'];
+  }
 
   Map<String, dynamic> toJson() {
-    return {
-      'id': id,
-      'party_sign': partySign,
-      'candidate_image': candidateImage,
-      'party_name': partyName,
-      'candidate_name': candidateName,
-      'booth': location,
-    };
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['candidate_id'] = this.candidateId;
+    data['election_id'] = this.electionId;
+    data['candidate_name'] = this.candidateName;
+    data['candidate_party_name'] = this.candidatePartyName;
+    data['candidate_party_sign'] = this.candidatePartySign;
+    data['candidate_vote_count'] = this.candidateVoteCount;
+    data['candidate_image'] = this.candidateImage;
+    data['booth'] = this.booth;
+    return data;
   }
 }

@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -5,6 +7,7 @@ import 'package:nirvada_user/app/data/widgets/c_button.dart';
 import 'package:nirvada_user/app/models/CandidateModel.dart';
 import 'package:nirvada_user/app/routes/app_pages.dart';
 import '../../../data/widgets/xText.dart';
+import '../../home/controllers/home_controller.dart';
 import '../controllers/vote_screen_controller.dart';
 
 class VoteScreenView extends GetView<VoteScreenController> {
@@ -15,6 +18,7 @@ class VoteScreenView extends GetView<VoteScreenController> {
   VoteScreenView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    final homeController = Get.find<HomeController>();
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -26,27 +30,31 @@ class VoteScreenView extends GetView<VoteScreenController> {
                 children: [
                   Container(
                       alignment: Alignment.centerRight,
-                      child: RichText(
-                          text: TextSpan(
-                              style: TextStyle(
-                                fontFamily: "Poppins",
-                                fontSize: 14.sp,
-                                fontWeight: FontWeight.w600,
-                                color: Color(0xff1b1b1b),
-                              ),
-                              children: [
-                            TextSpan(
-                                text: "Time Left : ",
-                                style: TextStyle(
-                                  fontFamily: "Poppins",
-                                  fontSize: 14.sp,
-                                  fontWeight: FontWeight.w600,
-                                  color: Color(0xff1b1b1b),
-                                )),
-                            TextSpan(
-                              text: "2:34",
-                            )
-                          ]))),
+                      child: GetBuilder<HomeController>(
+                          id: "0",
+                          builder: (controller) {
+                            return RichText(
+                                text: TextSpan(
+                                    style: TextStyle(
+                                      fontFamily: "Poppins",
+                                      fontSize: 14.sp,
+                                      fontWeight: FontWeight.w600,
+                                      color: Color(0xff1b1b1b),
+                                    ),
+                                    children: [
+                                  TextSpan(
+                                      text: "Time Left : ",
+                                      style: TextStyle(
+                                        fontFamily: "Poppins",
+                                        fontSize: 14.sp,
+                                        fontWeight: FontWeight.w600,
+                                        color: Color(0xff1b1b1b),
+                                      )),
+                                  TextSpan(
+                                    text: homeController.start.toString(),
+                                  )
+                                ]));
+                          })),
                   Align(
                     alignment: Alignment.centerLeft,
                     child: XText(
@@ -59,18 +67,22 @@ class VoteScreenView extends GetView<VoteScreenController> {
                   Container(
                     height: 140.h,
                     width: 140.h,
-                    child: Image.asset("assets/images/image5.png"),
-                    decoration:
-                        BoxDecoration(borderRadius: BorderRadius.circular(8.r)),
+                    // child: Image.asset("assets/images/image5.png"),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8.r),
+                      image: DecorationImage(
+                          image: MemoryImage(
+                              base64Decode(candidate.candidateImage))),
+                    ),
                   ),
                   SizedBox(height: 12.h),
                   XText(
-                    text: "Narendra D. Modi",
+                    text: candidate.candidateName,
                     size: 16.sp,
                     fontWeight: FontWeight.w600,
                   ),
                   XText(
-                    text: "Bhartiya Janta Party",
+                    text: candidate.candidatePartyName,
                     size: 14.sp,
                     isLight: true,
                   ),
@@ -79,27 +91,40 @@ class VoteScreenView extends GetView<VoteScreenController> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       XText(
-                        text: "Bhartiya Janta\nParty",
+                        text: candidate.candidatePartyName,
                         size: 18.sp,
                         fontWeight: FontWeight.w600,
                       ),
                       Icon(Icons.arrow_forward),
                       Container(
-                          height: 100.h,
-                          width: 100.h,
-                          child: Image.asset("assets/images/image4.png")),
+                        height: 100.h,
+                        width: 100.h,
+                        // child: Image.asset("assets/images/image4.png")
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                              image: MemoryImage(
+                                  base64Decode(candidate.candidatePartySign))),
+                        ),
+                      ),
                     ],
                   ),
                   SizedBox(height: 12.h),
-                  LButton(title: "Vote", onTap: () {
-                    controller.showDialog();
-                  }),
+                  LButton(
+                      title: "Vote",
+                      onTap: () {
+                        controller.showDialog(
+                            candidate.candidateId,
+                            candidate.candidateName,
+                            candidate.candidatePartyName);
+                      }),
                   SizedBox(
                     height: 18.h,
                   ),
                   CButton(
                     title: "Go back to login",
-                    onTap: () {},
+                    onTap: () {
+                      Get.offAllNamed(Routes.HOME);
+                    },
                   ),
                   SizedBox(
                     height: 14.h,

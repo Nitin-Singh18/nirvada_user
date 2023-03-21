@@ -54,7 +54,7 @@ class LoginScreenView extends GetView<LoginScreenController> {
                         controller: controller.authID,
                         maxLength: 12,
                         validator: (value) {
-                          if (value.isEmpty ) {
+                          if (value.isEmpty) {
                             return "Enter a valid aadhaar number";
                           }
                           return null;
@@ -79,27 +79,22 @@ class LoginScreenView extends GetView<LoginScreenController> {
                       ),
                       InkWell(
                         onTap: () {
-                          controller.onlogin();
+                          if (formKey.currentState!.validate()) {
+                            controller.onlogin();
+                          }
                         },
-                        child: InkWell(
-                          onTap: () {
-                            if (formKey.currentState!.validate()) {
-                              controller.onlogin();
-                            }
-                          },
-                          child: Container(
-                            height: 50.h,
-                            width: 320.w,
-                            alignment: Alignment.center,
-                            child: XText(
-                              text: "LOGIN",
-                              color: Colors.white,
-                              size: 18.sp,
-                            ),
-                            decoration: BoxDecoration(
-                                color: Color(0xff06038D),
-                                borderRadius: BorderRadius.circular(6.r)),
+                        child: Container(
+                          height: 50.h,
+                          width: 320.w,
+                          alignment: Alignment.center,
+                          child: XText(
+                            text: "LOGIN",
+                            color: Colors.white,
+                            size: 18.sp,
                           ),
+                          decoration: BoxDecoration(
+                              color: Color(0xff06038D),
+                              borderRadius: BorderRadius.circular(6.r)),
                         ),
                       ),
                       SizedBox(
