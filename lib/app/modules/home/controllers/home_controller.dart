@@ -45,4 +45,11 @@ class HomeController extends GetxController {
     super.onInit();
     onTap();
   }
+
+  @override
+  void onClose() {
+    // TODO: implement onClose
+    super.onClose();
+    timer.cancel();
+  }
 }
